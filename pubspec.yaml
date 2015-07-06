@@ -1,0 +1,44 @@
+name: pub_1290
+version: 0.0.1
+description: A sample command-line application.
+environment:
+  sdk: '>=1.9.3'
+dependencies:
+  browser: any
+  core_elements: '>=0.7.0 <0.8.0'
+  crypto: any
+  di: '>=3.3.0<3.4.0'
+  initialize: '>=0.6.0 <0.7.0'
+  logging: '>=0.9.3 <0.10.0'
+  path: any
+  polymer: '>=0.16.0 <0.17.0'
+  polymer_intl: any
+  observe: '^0.13.1'
+  web_components: any
+  js_mimicry: ">=0.2.0 <0.3.0"
+  pub_1290_lib:
+      git:
+        ref: master
+        url: git@github.com:DisDis/pub-1290-lib.git
+dev_dependencies:
+  barback: any
+  html5lib: any
+  image: '>1.1.0 <1.2.0'
+  less_dart: '>=0.3.0 <0.4.0'
+  mock: any
+  smoke: '>=0.3.3 <0.4.0'
+  test: '>=0.12.0'
+transformers:
+- js_mimicry
+- less_dart:
+    entry_points:
+    - web/main.less
+    output: web/main.css
+- polymer:
+    entry_points:
+    - web/index.html
+    - test/sandbox/index.html
+    csp: false
+- pub_1290_lib/transformer
+- test/pub_serve:
+    $include: test/**_test{.*,}.dart
